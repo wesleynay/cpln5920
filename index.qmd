@@ -4,7 +4,7 @@ title: "CPLN 5920 Portfolio"
 
 # Welcome to My Portfolio
 
-This portfolio documents my learning journey in Public Policy Analytics (MUSA 5080).
+This portfolio documents my learning journey in Public Policy Analytics (CPLN 5920/MUSA 5080).
 
 ## About This Course
 Advanced spatial analysis and data science for urban planning and public policy.
@@ -21,7 +21,7 @@ I am a first year Master of City Planning student concentrating in Housing, Comm
 
 **Previous experience:**
 
- - New York City Independent Budget Office (~1 year)
+ - New York City Independent Budget Office
  
  - University of Chicago Urban Labs - Inclusive Economy Lab
 
@@ -31,5 +31,5 @@ I am a first year Master of City Planning student concentrating in Housing, Comm
 I am taking this course because I am interested in a career in policy analysis. I have some limited experience in public sector analysis but was limited by my lack of quantitative technical skills. I hope to become proficient in R to be qualified to be an analyst. 
 
 ## Contact
-- Email: wesnay@design.upenn.edu
-- GitHub: @wesleynay
+- **Email:** wesnay@design.upenn.edu
+- **GitHub:** @wesleynay
