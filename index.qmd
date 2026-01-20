@@ -16,14 +16,18 @@ Advanced spatial analysis and data science for urban planning and public policy.
 
 ## About Me
 **Wesley Nay**
+
 Master of City Planning, first year - Concentration: Housing, Community, Economic Development
+
 B.S. in Sociology and Urban Studies
+
 **Previous experience:**
-- New York City Independent Budget Office (~1 year)
-- University of Chicago Urban Labs - Inclusive Economy Lab
+ - New York City Independent Budget Office (~1 year)
+ - University of Chicago Urban Labs - Inclusive Economy Lab
 
 
 ***Why this course?***
+
 I am taking this course because I am interested in a career in policy analysis. I have some limited experience in public sector analysis but was limited by my lack of quantitative technical skills. I hope to become proficient in R to be qualified to be an analyst. 
 
 ## Contact
