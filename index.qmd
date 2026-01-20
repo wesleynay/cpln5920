@@ -31,5 +31,5 @@ B.S. in Sociology and Urban Studies
 I am taking this course because I am interested in a career in policy analysis. I have some limited experience in public sector analysis but was limited by my lack of quantitative technical skills. I hope to become proficient in R to be qualified to be an analyst. 
 
 ## Contact
-- Email: [wesnay@design.upenn.edu]
-- GitHub: [@wesleynay]
+- Email: wesnay@design.upenn.edu
+- GitHub: @wesleynay
