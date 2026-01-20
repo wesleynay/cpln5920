@@ -20,6 +20,7 @@ Advanced spatial analysis and data science for urban planning and public policy.
 I am a first year Master of City Planning student concentrating in Housing, Community, and Economic Development. I earned my Bachelor of Science from Elmhurst University with double majors in Sociology and Urban Studies. I briefly worked in policy research between university and beginning the MCP at Penn.
 
 **Previous experience:**
+
  - New York City Independent Budget Office (~1 year)
  - University of Chicago Urban Labs - Inclusive Economy Lab
 
