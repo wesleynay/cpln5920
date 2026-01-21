@@ -5,9 +5,9 @@ project:
 website:
   title: "Wesley Nay - CPLN 5920 Portfolio"
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
+  left:
+    - href: index.qmd
+      text: Home
 
 format:
   html:
