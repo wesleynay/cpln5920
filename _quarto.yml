@@ -5,13 +5,13 @@ project:
 website:
   title: "Wesley Nay - CPLN 5920 Portfolio"
   navbar:
-  left:
-    - href: index.qmd
-      text: Home
-    - text: Labs
-      menu:
-        - href: labs/lab_0/
-          text: "Lab 0: dplyr Basics"
+   left:
+     - href: index.qmd
+       text: Home
+     - text: Labs
+       menu:
+         - href: labs/lab_0/
+           text: "Lab 0: dplyr Basics"
 
 format:
   html:
