@@ -79,7 +79,6 @@ car_data
 
 # Convert to regular data frame and display
 car_df <- as.data.frame(car_data)
-car_df
 ```
 
 **Question:** What differences do you notice in how they print?
