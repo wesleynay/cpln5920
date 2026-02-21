@@ -50,7 +50,7 @@ If there is a special character like a colon, you need use double quote mark so 
 
 # Setup
 
-```{r setup}
+```{r setup, echo=FALSE}
 # Load required packages (hint: you need tidycensus, tidyverse, and knitr)
 library(tidycensus)
 library(tidyverse)
