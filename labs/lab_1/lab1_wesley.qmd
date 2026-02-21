@@ -30,24 +30,6 @@ Drawing on our Week 2 discussion of algorithmic bias, you need to assess not jus
 - Identify potential equity implications of data reliability issues
 - Create professional documentation for policy stakeholders
 
-## Submission Instructions
-
-**Submit by posting your updated portfolio link on Canvas.** Your assignment should be accessible at `your-portfolio-url/labs/lab_1/`
-
-Make sure to update your `_quarto.yml` navigation to include this assignment under an "Labs" menu.
-
-# Part 1: Portfolio Integration
-
-Create this assignment in your portfolio repository under an `labs/lab_1/` folder structure. Update your navigation menu to include:
-
-```
-- text: Assignments
-  menu:
-    - href: labs/lab_1/your_file_name.qmd
-      text: "Lab 1: Census Data Exploration"
-```
-If there is a special character like a colon, you need use double quote mark so that the quarto can identify this as text
-
 # Setup
 
 ```{r setup, echo=FALSE}
