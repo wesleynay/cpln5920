@@ -262,7 +262,8 @@ I chose equal to or greater than 20% as my threshold for a significant elderly p
 834 tracts meet both my vulnerability criteria of BOTH a median income of less than $76,000 and a percentage equal to or greater than 20% of the population as 65 and over.
 
 - What percentage of PA census tracts are considered vulnerable by your definition?
-About 24% of PA census tracts are considered vulnerable by my definition above.
+
+  About 24% of PA census tracts are considered vulnerable by my definition above.
 
 
 ---
@@ -352,7 +353,8 @@ The average (median) distance to the nearest hospital for vulnerable tracts is a
 The maximum distance is about 32.84 miles to the nearest hospital.
 
 - How many vulnerable tracts are more than 15 miles from the nearest hospital?
-There are 49 vulnerable tracts that are more than 15 miles from the nearest hospital.
+
+  There are 49 vulnerable tracts that are more than 15 miles from the nearest hospital.
 
 
 
@@ -440,7 +442,7 @@ Bradford, Clearfield, Sullivan, Dauphin, and Juniata Counties have the most vuln
 
 - Are there any patterns in where underserved counties are located?
 
-The underserved counties are generally more rural and located in Central PA and in the Appalachian regions of the state. These areas tend to have lower population density, larger geographic distances between towns, and fewer major healthcare systems as opposed to metro areas like Philadelphia. Dauphin County is an outlier to this pattern.
+  The underserved counties are generally more rural and located in Central PA and in the Appalachian regions of the state. These areas tend to have lower population density, larger geographic distances between towns, and fewer major healthcare systems as opposed to metro areas like Philadelphia. Dauphin County is an outlier to this pattern.
 
 
 
