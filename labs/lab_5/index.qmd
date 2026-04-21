@@ -314,10 +314,12 @@ From this simple lat/long map of the top 20 Indego stations, I can see that ther
 
 We'll get census tract data to add demographic context to our stations.
 
-```{r load_census, include=FALSE, message=FALSE, warning=FALSE}
-#| message: FALSE
-#| warning: FALSE
+```{r load_census, message=FALSE, warning=FALSE}
+#| message: false
+#| warning: false
 #| include: FALSE
+#| echo: true
+#| results: 'hide'
 
 
 # Get Philadelphia census tracts
