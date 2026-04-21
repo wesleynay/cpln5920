@@ -6,7 +6,7 @@ website:
   title: "Wesley Nay - CPLN 5920 Portfolio"
   navbar:
    left:
-     - href: index.qmd
+     - href: /
        text: Home
      - text: Labs
        menu:
@@ -23,7 +23,7 @@ website:
 
 format:
   html:
-    theme: cosmoS
+    theme: cosmo
     toc: true
     code-fold: true
 
