@@ -1104,5 +1104,152 @@
     "title": "Lab 5: Bikeshare SpaceTime Prediction",
     "section": "Test and Evaluate Model",
     "text": "Test and Evaluate Model\n\n\nCode\n# predict\ntest &lt;- test %&gt;%\n  mutate(\n    pred6 = predict(model6, newdata = test)\n  )\n\n# calculate MAE\nmae_model6 &lt;- mean(abs(test$Trip_Count - test$pred6), na.rm = TRUE)\n\nmae_results &lt;- bind_rows(\n  mae_results,\n  tibble(\n    Model = \"6. + Same Hour Last Week + School\",\n    MAE = mae_model6\n  )\n)\n\nkable(\n  mae_results %&gt;% mutate(MAE = round(MAE, 3)),\n  caption = \"Mean Absolute Error by Model (Test Set)\"\n) %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"))\n\n\n\nMean Absolute Error by Model (Test Set)\n\n\nModel\nMAE\n\n\n\n\n1. Time + Weather\n0.850\n\n\n2. + Temporal Lags\n0.728\n\n\n3. + Demographics\n0.731\n\n\n4. + Station FE\n0.730\n\n\n5. + Rush Hour Interaction\n0.734\n\n\n6. + Same Hour Last Week + School\n0.706\n\n\n\n\n\nAdding these features reduced MAE from 0.728 to 0.706, which is a noticeable improvement compared to the very small changes from earlier feature additions. This suggests that incorporating additional temporal structure, especially weekly demand patterns, provides meaningful gains in predictive accuracy.\nThese features likely improved predictions during more structured demand periods, such as weekday commuting hours and the late-Q3 period when students return. The same hour last week variable helps stabilize predictions by capturing recurring weekly patterns, while the school indicator helps account for broader seasonal shifts in ridership."
+  },
+  {
+    "objectID": "labs/lab_final/index.html#problem-policy-context",
+    "href": "labs/lab_final/index.html#problem-policy-context",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Problem & Policy Context",
+    "text": "Problem & Policy Context\nExtent literature shows the devastating effects of evictions on health, social, and economic outcomes. Evictions are spatially correlated and persistent over time.\nA targeted, more focused approach to eviction prevention is important in Philadelphia given that it is the second poorest city in the U.S. There were over 13,000 eviction filings in the past 12 months in the city.\nBlack & female Philadelphians were more likely to receive an eviction threat in the last 12 months than their white and male counterparts, respectively."
+  },
+  {
+    "objectID": "labs/lab_final/index.html#motivation",
+    "href": "labs/lab_final/index.html#motivation",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Motivation",
+    "text": "Motivation\nWe create a predictive model for eviction filings to identify areas wherein to target eviction prevention strategies and resources more effectively."
+  },
+  {
+    "objectID": "labs/lab_final/index.html#research-question",
+    "href": "labs/lab_final/index.html#research-question",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Research Question",
+    "text": "Research Question\nWhich census tracts in Philadelphia are most at risk of receiving eviction filings?\nWhich variables best predict eviction filings?"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#data-sources",
+    "href": "labs/lab_final/index.html#data-sources",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Data Sources",
+    "text": "Data Sources\n\nEviction filings data, 2020–2026 (Eviction Lab)\nCensus ACS (ACS5, 2022) — income, race, mobility, rent burden, vehicle access\nOpenDataPhilly — bike network, landmarks, 311 maintenance complaints\nEviction Lab Top 100 Filers (Philadelphia hotspots)\nCensus tract boundaries (TIGER/Line)\nOur integration approach was joining our data by census tract"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#demographic-overview",
+    "href": "labs/lab_final/index.html#demographic-overview",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Demographic Overview",
+    "text": "Demographic Overview"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#demographic-overview-1",
+    "href": "labs/lab_final/index.html#demographic-overview-1",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Demographic Overview",
+    "text": "Demographic Overview"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#demographic-overview-2",
+    "href": "labs/lab_final/index.html#demographic-overview-2",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Demographic Overview",
+    "text": "Demographic Overview"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#where-are-evictions-concentrated",
+    "href": "labs/lab_final/index.html#where-are-evictions-concentrated",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Where Are Evictions Concentrated?",
+    "text": "Where Are Evictions Concentrated?"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#temporal-patterns",
+    "href": "labs/lab_final/index.html#temporal-patterns",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Temporal Patterns",
+    "text": "Temporal Patterns"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#temporal-patterns-1",
+    "href": "labs/lab_final/index.html#temporal-patterns-1",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Temporal Patterns",
+    "text": "Temporal Patterns"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#methods-overview",
+    "href": "labs/lab_final/index.html#methods-overview",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Methods Overview",
+    "text": "Methods Overview\n\n\nNegative Binomial\n\nCount data\nPoisson: overdispersion\nLogistic: lose too much detail\n\nIntegration Approach\n\nJoined using GEOID / Census Tract\nUnit of analysis: filings by week, month, season\n\n\n\n\n\nOverdispersion Diagnostics\n\n\nMetric\nValue\n\n\n\n\nMean of outcome\n0.631\n\n\nVariance of outcome\n1.474\n\n\nVariance / Mean\n2.335\n\n\nDispersion (Pearson)\n2.295"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#model-building",
+    "href": "labs/lab_final/index.html#model-building",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Model Building",
+    "text": "Model Building\nWe built 5 models in sequence\n\nModel 1: baseline (season + month)\nModel 2: + temporal lags\nModel 3: + demographics (age, race, income)\nModel 4: + rent burden, new residents, transit commuters\nModel 5: + physical features (landmarks, bike lanes, maintenance complaints)\nModel 6: + top 100 owners who filed evictions in Philadelphia"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#model-performance",
+    "href": "labs/lab_final/index.html#model-performance",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Model Performance",
+    "text": "Model Performance"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#spatial-errors",
+    "href": "labs/lab_final/index.html#spatial-errors",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Spatial Errors",
+    "text": "Spatial Errors"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#error-vs-demographics",
+    "href": "labs/lab_final/index.html#error-vs-demographics",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Error vs Demographics",
+    "text": "Error vs Demographics"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#error-vs-season",
+    "href": "labs/lab_final/index.html#error-vs-season",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Error vs Season",
+    "text": "Error vs Season"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#predicted-vs-observed",
+    "href": "labs/lab_final/index.html#predicted-vs-observed",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Predicted vs Observed",
+    "text": "Predicted vs Observed"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#final-model-comparison",
+    "href": "labs/lab_final/index.html#final-model-comparison",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Final Model Comparison",
+    "text": "Final Model Comparison\n\n\n\nEach layer prediction improves prediction\n\n\nModel\nMAE\nRMSE\n\n\n\n\n1. Baseline season\n0.80\n1.17\n\n\n2. + temporal lags\n0.78\n1.62\n\n\n3. + demographics\n0.73\n1.21\n\n\n4. + rent burden, mobility, interaction effect\n0.73\n1.23\n\n\n5. + landmarks, bike lanes, and maintenance complaints\n0.72\n1.18\n\n\n6. + top 100 property owners filing evictions (Final)\n0.71\n1.16"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#recommendations",
+    "href": "labs/lab_final/index.html#recommendations",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Recommendations",
+    "text": "Recommendations\n\nPromote intervention program that supports census tracts that have high counts of eviction filings\nConduct outreach and assessment in tracts with high counts of eviction filings\nConnect non-profit community organizations with identified census tracts to allocate resources\nInvestigate top 100 eviction filers"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#limitations-and-bias-considerations",
+    "href": "labs/lab_final/index.html#limitations-and-bias-considerations",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Limitations and Bias Considerations",
+    "text": "Limitations and Bias Considerations\n\nData is aggregated at the tract level, so we miss intra-tract differences\nData captures filings not processed evictions\nEviction rates are higher for Black renters than white renters\nHistorical inequities shape socioeconomic qualities like income and rent burden\n\nThis type of model could be misused to stigmatize poorer and Black neighborhoods"
+  },
+  {
+    "objectID": "labs/lab_final/index.html#questions",
+    "href": "labs/lab_final/index.html#questions",
+    "title": "Predicting Eviction Filings in Philadelphia",
+    "section": "Questions?",
+    "text": "Questions?\nThank you"
   }
 ]

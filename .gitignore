@@ -38,3 +38,8 @@ Thumbs.db
 *~
 /.quarto/
 **/*.quarto_ipynb
+
+# =========================
+# Data (local only, do not push)
+# =========================
+labs/lab_final/data/public_cases_fc.csv

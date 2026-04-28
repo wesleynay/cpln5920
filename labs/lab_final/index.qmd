@@ -1,0 +1,205 @@
+---
+title: "Predicting Eviction Filings in Philadelphia"
+subtitle: "A Census-Tract Level Negative Binomial Model"
+author: "Huda, Dalanda, Wesley, Yusuf"
+date: today
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+---
+
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| include: false
+
+library(tidyverse)
+library(sf)
+library(tmap)
+library(ggplot2)
+library(kableExtra)
+library(viridis)
+library(patchwork)
+library(pROC)
+
+load("final_project.RData")
+
+```
+
+## Problem & Policy Context
+
+Extent literature shows the devastating effects of evictions on health, social, and economic outcomes. Evictions are spatially correlated and persistent over time.
+
+A targeted, more focused approach to eviction prevention is important in Philadelphia given that it is the second poorest city in the U.S. There were over **13,000** eviction filings in the past 12 months in the city.
+
+Black & female Philadelphians were more likely to receive an eviction threat in the last 12 months than their white and male counterparts, respectively.
+
+## Motivation
+
+We create a predictive model for eviction filings to identify areas wherein to target eviction prevention strategies and resources more effectively.
+
+## Research Question
+
+Which census tracts in Philadelphia are most at risk of receiving eviction filings?
+
+Which variables best predict eviction filings?
+
+## Data Sources
+
+- Eviction filings data, 2020–2026 (Eviction Lab)
+- Census ACS (ACS5, 2022) — income, race, mobility, rent burden, vehicle access
+- OpenDataPhilly — bike network, landmarks, 311 maintenance complaints
+- Eviction Lab Top 100 Filers (Philadelphia hotspots)
+- Census tract boundaries (TIGER/Line)
+- Our integration approach was joining our data by census tract
+
+## Demographic Overview
+```{r}
+rent_map
+```
+
+## Demographic Overview
+```{r}
+black
+```
+
+
+## Demographic Overview
+```{r}
+hispanic
+```
+
+
+## Where Are Evictions Concentrated?
+```{r}
+eviction_map
+```
+
+## Temporal Patterns
+
+```{r}
+seasonal_plot <- ggplot(seasonal_patterns, aes(x = season, y = avg_filings, group = 1)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 3) +
+  labs(
+    title = "Seasonal Eviction Patterns",
+    x = "Season",
+    y = "Average Filings"
+  )
+seasonal_plot 
+
+
+```
+
+
+## Temporal Patterns
+```{r}
+weekly_plot
+```
+
+## Methods Overview
+:::: {.columns}
+::: {.column width="50%"}
+
+**Negative Binomial**
+
+- Count data
+- Poisson: overdispersion
+- Logistic: lose too much detail
+
+
+**Integration Approach**
+
+- Joined using GEOID / Census Tract
+- Unit of analysis: filings by week, month, season
+
+:::
+::::{.column width="50%"}
+
+```{r}
+overdisp_table.1
+```
+
+:::
+::::
+
+## Model Building
+
+*We built 5 models in sequence*
+
+- Model 1: baseline (season + month)
+- Model 2: + temporal lags
+- Model 3: + demographics (age, race, income)
+- Model 4: + rent burden, new residents, transit commuters
+- Model 5: + physical features (landmarks, bike lanes, maintenance complaints)
+- Model 6: + top 100 owners who filed evictions in Philadelphia
+
+## Model Performance
+
+```{r}
+
+model_comparison
+```
+
+## Spatial Errors
+
+```{r}
+p1 + 
+p2 +
+p3
+```
+
+
+
+## Error vs Demographics 
+```{r}
+p4+
+p5+
+p6+
+p7
+```
+
+
+## Error vs Season 
+
+```{r}
+p9
+```
+
+
+
+## Predicted vs Observed
+
+```{r}
+p10
+```
+
+## Final Model Comparison
+```{r}
+comparison_m
+```
+
+
+## Recommendations
+
+- Promote intervention program that supports census tracts that have high counts of eviction filings
+- Conduct outreach and assessment in tracts with high counts of eviction filings
+- Connect non-profit community organizations with identified census tracts to allocate resources
+- Investigate top 100 eviction filers
+
+## Limitations and Bias Considerations
+
+- Data is aggregated at the tract level, so we miss intra-tract differences
+- Data captures filings not processed evictions
+- Eviction rates are higher for Black renters than white renters
+- Historical inequities shape socioeconomic qualities like income and rent burden
+    - This type of model could be misused to stigmatize poorer and Black neighborhoods
+    
+## Questions?
+
+Thank you
